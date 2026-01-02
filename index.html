@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tic Tac Toe - Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="اهلا بك في موقعي">
+        <meta name="keywords" content="X.O , XOgame , XO , O.X , OX , OXgame , Mamdouh-XO , Mamdouh-OX , Tic Tac Toe , tic tac toe">
+        <meta name="author" content="mamdouh-cyber">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Arial', sans-serif;
+                overflow: hidden;
+                position: relative;
+            }
+
+            /* Animated background particles */
+            .particle {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: rgba(90, 219, 236, 0.6);
+                border-radius: 50%;
+                animation: float 15s infinite ease-in-out;
+            }
+
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0) translateX(0);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                50% {
+                    transform: translateY(-100vh) translateX(50px);
+                    opacity: 0.8;
+                }
+            }
+
+            /* Main container */
+            .home-container {
+                text-align: center;
+                z-index: 10;
+                animation: fadeInUp 1s ease-out;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Title styling */
+            .main-title {
+                font-size: 72px;
+                font-weight: 900;
+                color: #fff;
+                margin-bottom: 20px;
+                text-shadow: 0 0 20px rgba(90, 219, 236, 0.5),
+                             0 0 40px rgba(90, 219, 236, 0.3),
+                             0 0 60px rgba(90, 219, 236, 0.2);
+                animation: pulse 2s ease-in-out infinite;
+                letter-spacing: 5px;
+                padding: 0 20px;
+            }
+
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+
+            /* Subtitle */
+            .subtitle {
+                font-size: 24px;
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 50px;
+                animation: fadeIn 1.5s ease-out;
+                font-weight: 300;
+                letter-spacing: 2px;
+                padding: 0 20px;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Start button */
+            .start-button {
+                display: inline-block;
+                padding: 18px 50px;
+                font-size: 24px;
+                font-weight: bold;
+                color: #fff;
+                background: linear-gradient(135deg, rgba(90, 219, 236, 0.9), rgba(21, 101, 192, 0.9));
+                border: 2px solid rgba(90, 219, 236, 0.5);
+                border-radius: 50px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 20px rgba(90, 219, 236, 0.4),
+                            0 0 30px rgba(90, 219, 236, 0.2);
+                animation: buttonFloat 3s ease-in-out infinite;
+                position: relative;
+                overflow: hidden;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            @keyframes buttonFloat {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            .start-button::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: translate(-50%, -50%);
+                transition: width 0.6s, height 0.6s;
+            }
+
+            .start-button:hover::before {
+                width: 300px;
+                height: 300px;
+            }
+
+            .start-button:hover {
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 0 10px 30px rgba(90, 219,236, 0.6),
+                            0 0 50px rgba(90, 219, 236, 0.4);
+                border-color: rgba(90, 219, 236, 1);
+            }
+
+            .start-button:active {
+                transform: translateY(-2px) scale(1.02);
+            }
+
+            .start-button span {
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Decorative X and O */
+            .decorative-xo {
+                position: absolute;
+                font-size: 200px;
+                font-weight: 900;
+                opacity: 0.1;
+                animation: rotate 20s linear infinite;
+                pointer-events: none;
+            }
+            
+            /* Mobile Responsive Styles */
+            @media screen and (max-width: 768px) {
+                body {
+                    overflow-x: hidden;
+                }
+                
+                .main-title {
+                    font-size: 48px;
+                    letter-spacing: 3px;
+                    margin-bottom: 15px;
+                }
+                
+                .subtitle {
+                    font-size: 18px;
+                    margin-bottom: 40px;
+                    letter-spacing: 1px;
+                }
+                
+                .start-button {
+                    padding: 15px 40px;
+                    font-size: 20px;
+                }
+                
+                .decorative-xo {
+                    font-size: 120px;
+                }
+                
+                .home-footer {
+                    font-size: 12px;
+                    bottom: 10px;
+                    padding: 0 20px;
+                }
+            }
+            
+            @media screen and (max-width: 480px) {
+                .main-title {
+                    font-size: 36px;
+                    letter-spacing: 2px;
+                    margin-bottom: 12px;
+                }
+                
+                .subtitle {
+                    font-size: 16px;
+                    margin-bottom: 30px;
+                }
+                
+                .start-button {
+                    padding: 12px 30px;
+                    font-size: 18px;
+                }
+                
+                .decorative-xo {
+                    font-size: 80px;
+                }
+                
+                .home-footer {
+                    font-size: 10px;
+                    bottom: 5px;
+                }
+            }
+            
+            @media screen and (max-width: 360px) {
+                .main-title {
+                    font-size: 28px;
+                    letter-spacing: 1px;
+                }
+                
+                .subtitle {
+                    font-size: 14px;
+                }
+                
+                .start-button {
+                    padding: 10px 25px;
+                    font-size: 16px;
+                }
+            }
+
+            .decorative-x {
+                top: 10%;
+                left: 10%;
+                color: rgba(255, 0, 0, 0.1);
+            }
+
+            .decorative-o {
+                bottom: 10%;
+                right: 10%;
+                color: rgba(21, 101, 192, 0.1);
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* Footer */
+            .home-footer {
+                position: absolute;
+                bottom: 20px;
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 14px;
+                animation: fadeIn 2s ease-out;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Animated background particles -->
+        <div id="particles"></div>
+
+        <!-- Decorative X and O -->
+        <div class="decorative-xo decorative-x">X</div>
+        <div class="decorative-xo decorative-o">O</div>
+
+        <!-- Main content -->
+        <div class="home-container">
+            <h1 class="main-title">TIC TAC TOE</h1>
+            <p class="subtitle">Challenge Your Friend & Have Fun!</p>
+            <a href="XO-Game.html" class="start-button">
+                <span>START GAME</span>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="home-footer">
+            Copyright © 2025 Tic Tac Toe. All rights reserved. (By mamdouh-cyber)
+        </div>
+
+        <script>
+            // Create animated particles
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 30;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 15 + 's';
+                    particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // Initialize particles on page load
+            window.addEventListener('DOMContentLoaded', createParticles);
+        </script>
+    </body>
+</html>
