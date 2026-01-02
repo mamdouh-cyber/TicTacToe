@@ -1,0 +1,567 @@
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.Header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(45deg, #3498db, #2c3e50);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.Header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+.Header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.ScoreContainer {
+    display: flex;
+    background: linear-gradient(145deg, #1e3c72, #2a5298);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    max-width: 470px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.ScoreContainer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+.ScoreContainer > * {
+    position: relative;
+    z-index: 1;
+}
+
+#ScoreO {
+    margin-left: 15px;
+}
+
+.ScoreTextRed , .ScoreTextBlue {
+    min-width: 120px;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ScoreTextRed::before, .ScoreTextBlue::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    z-index: -1;
+}
+
+.ScoreTextRed {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+
+.ScoreTextBlue {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+}
+
+.ScoreTextRed:hover, .ScoreTextBlue:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.ResetScoreButton {
+    padding: 12px 20px;
+    margin: 0 5px;
+    background: linear-gradient(45deg, #7f8c8d, #95a5a6);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.ResetScoreButton::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.ResetScoreButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #95a5a6, #bdc3c7);
+}
+
+.ResetScoreButton:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.Footer {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(145deg, #1e3c72, #2a5298);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 35px auto;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.Footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), transparent);
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+.Footer > * {
+    position: relative;
+    z-index: 1;
+}
+
+.GameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.GameRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.GameCell {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    color: #2c3e50;
+    position: relative;
+    overflow: hidden;
+}
+
+.GameCell::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+.GameCell > * {
+    position: relative;
+    z-index: 1;
+}
+
+.GameCell:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(255, 255, 255, 0.7);
+}
+
+.GameCell:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+.WhoPlay-Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 350px;
+    margin: 25px auto 0;
+    padding: 15px 25px;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.8));
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    gap: 15px;
+    width: calc(100% - 40px);
+    position: relative;
+    overflow: hidden;
+}
+
+.WhoPlay-Container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), transparent);
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+.X-Play , .O-Play {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    padding: 12px 0;
+    border-radius: 45px;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.X-Play {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+.O-Play {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    box-shadow: 0 5px 15px rgba(33, 147, 176, 0.4);
+}
+
+.X-Play:hover, .O-Play:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Styles for All Devices */
+/* Large desktop screens */
+@media screen and (min-width: 1200px) {
+    .GameContainer {
+        max-width: 400px;
+        padding: 25px;
+    }
+    
+    .GameCell {
+        width: 120px;
+        height: 120px;
+        font-size: 50px;
+    }
+    
+    .Header {
+        font-size: 32px;
+        padding: 25px;
+    }
+    
+    .ScoreTextRed, .ScoreTextBlue {
+        min-width: 140px;
+        padding: 18px 22px;
+        font-size: 20px;
+    }
+    
+    .WhoPlay-Container {
+        max-width: 450px;
+        padding: 20px 30px;
+    }
+    
+    .X-Play, .O-Play {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+    
+    .Footer {
+        font-size: 18px;
+        padding: 20px;
+    }
+    
+    .ResetScoreButton {
+        padding: 15px 25px;
+        font-size: 18px;
+        justify-content: center;
+    }
+}
+
+/* Tablet and smaller desktop */
+@media screen and (max-width: 1024px) {
+    .Header {
+        font-size: 18px;
+        padding: 12px;
+        margin: 10px auto;
+        max-width: 95%;
+    }
+    
+    .ScoreContainer {
+        max-width: 90%;
+        padding: 8px;
+        margin: 20px auto;
+        border-radius: 50px;
+    }
+    
+    .GameContainer {
+        max-width: 100%;
+        margin: 10px auto;
+    }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    .Header {
+        font-size: 24px;
+        padding: 15px;
+        margin: 15px auto;
+        max-width: 95%;
+    }
+
+    .ScoreContainer {
+        max-width: 90%;
+        padding: 15px;
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+
+    .ScoreTextRed, .ScoreTextBlue {
+        min-width: 100px;
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    #ScoreO {
+        margin-left: 10px;
+    }
+
+    .GameContainer {
+        max-width: 100%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    .GameCell {
+        width: calc((100vw - 50px) / 3);
+        max-width: 100px;
+        height: calc((100vw - 50px) / 3);
+        max-height: 100px;
+        font-size: calc((100vw - 50px) / 8);
+        min-width: 70px;
+        min-height: 70px;
+    }
+
+    .GameRow {
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    .WhoPlay-Container {
+        max-width: 90%;
+        padding: 12px 18px;
+        margin: 20px auto 0;
+        gap: 10px;
+    }
+
+    .X-Play, .O-Play {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+    .Footer {
+        font-size: 14px;
+        padding: 12px;
+        margin: 25px auto;
+        max-width: 95%;
+    }
+    
+    .ScoreContainer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .ResetScoreButton {
+        align-self: center;
+        width: auto;
+        max-width: 220px;
+        padding: 10px 15px;
+        font-size: 15px;
+        justify-content: center;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    .Header {
+        font-size: 20px;
+        padding: 12px;
+    }
+    
+    .ScoreContainer {
+        border-radius: 15px;
+        padding: 12px;
+    }
+    
+    .ScoreTextRed, .ScoreTextBlue {
+        min-width: 90px;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .GameCell {
+        width: calc((100vw - 40px) / 3);
+        height: calc((100vw - 40px) / 3);
+        font-size: calc((100vw - 40px) / 7);
+        min-width: 60px;
+        min-height: 60px;
+    }
+    
+    .WhoPlay-Container {
+        padding: 10px 15px;
+        border-radius: 15px;
+    }
+    
+    .X-Play, .O-Play {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+    
+    .Footer {
+        font-size: 13px;
+        padding: 10px;
+    }
+    
+    .ResetScoreButton {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0 0 0;
+        padding: 12px 15px;
+        justify-content: center;
+    }
+}
+
+/* Very small mobile devices */
+@media screen and (max-width: 360px) {
+    .GameCell {
+        width: calc((100vw - 30px) / 3);
+        height: calc((100vw - 30px) / 3);
+        font-size: calc((100vw - 30px) / 6);
+        min-width: 50px;
+        min-height: 50px;
+    }
+    
+    .ScoreTextRed, .ScoreTextBlue {
+        min-width: 80px;
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    .Header {
+        font-size: 18px;
+        padding: 10px;
+    }
+    
+    .X-Play, .O-Play {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+}
